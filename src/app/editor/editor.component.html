@@ -1,26 +1,37 @@
 <div class="card-deck">
   <div class="card bg-light">
+    <div class="card-header"><h2>Encode</h2></div>
     <div class="card-body">
-      <h4 class="card-title">Encode</h4>
-
       <div class="card-text">
         <div class="form-group">
-          <textarea [(ngModel)]="text" class="form-control" placeholder="enter text here" rows="5"></textarea>
+          <textarea [(ngModel)]="text" class="form-control" placeholder="enter your message here" rows="5"></textarea>
         </div>
-
-        <p><strong>Encoded:</strong> {{ encoded }}</p>
-
-        <button (click)="goto(encoded)" class="btn btn-primary">Set as fragment</button>
+        <button (click)="goto(encoded)" class="btn btn-primary">Encode in URL</button>
       </div>
     </div>
+    <div class="card-footer"><strong>Encoded:</strong> {{ encoded }}</div>
   </div>
 
   <div class="card bg-light">
+    <div class="card-header"><h2>Decode</h2></div>
     <div class="card-body">
-      <h4 class="card-title">Decode from Base64 fragment (Text after # in URL)</h4>
       <div class="card-text">
-        <p><strong>Decoded:</strong> {{ decoded }}</p>
+        <p><strong>Message:</strong> {{ decoded }} </p>
       </div>
     </div>
+    <div class="card-footer">
+      <small class="text-muted">Comes from the fragment (text after # in the URL).</small>
+    </div>
   </div>
+</div>
+
+<div class="mt-5">
+  <h3>How to use</h3>
+  <ol>
+    <li>Type your message in the text box.</li>
+    <li>Encode your message into the url.</li>
+    <li>Send the url to a friend.</li>
+    <li>The friend goes to the url and sees your message.</li>
+    <li>All of this is done without interacting through a server.</li>
+  </ol>
 </div>
