@@ -1,11 +1,26 @@
-<h2>Encode</h2>
-<div class="form-group">
-  <textarea [(ngModel)]="text" class="form-control" placeholder="enter text here" rows="10"></textarea>
+<div class="card-deck">
+  <div class="card bg-light">
+    <div class="card-body">
+      <h4 class="card-title">Encode</h4>
+
+      <div class="card-text">
+        <div class="form-group">
+          <textarea [(ngModel)]="text" class="form-control" placeholder="enter text here" rows="10"></textarea>
+        </div>
+
+        <p><strong>Encoded:</strong> {{ encoded }}</p>
+
+        <button (click)="goto(encoded)" class="btn btn-primary">Set as fragment</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="card bg-light">
+    <div class="card-body">
+      <h4 class="card-title">Decode from Base64 fragment (Text after # in URL)</h4>
+      <div class="card-text">
+        <p><strong>Decoded:</strong> {{ decoded }}</p>
+      </div>
+    </div>
+  </div>
 </div>
-
-<p>Encoded (Base64): {{ encoded }}</p>
-
-<button (click)="goto(encoded)" class="btn btn-primary">Set as fragment</button>
-
-<h2>Decode from Base64 fragment (Text after # in URL)</h2>
-<p>Decoded: {{ decoded }}</p>
