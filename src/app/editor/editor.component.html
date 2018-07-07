@@ -3,7 +3,9 @@
   <textarea [(ngModel)]="text" class="form-control" placeholder="enter text here" rows="10"></textarea>
 </div>
 
-<p>Encoded: {{ encoded }}</p>
+<p>Encoded (Base64): {{ encoded }}</p>
 
-<h2>Decode</h2>
-<p>{{ decoded }}</p>
+<button (click)="goto(encoded)" class="btn btn-primary">Set as fragment</button>
+
+<h2>Decode from Base64 fragment (Text after # in URL)</h2>
+<p>Decoded: {{ decoded }}</p>

@@ -12,32 +12,42 @@ export class EditorComponent implements OnInit {
     'V', 'W', 'X', 'Y', 'Z', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r',
     's', 't', 'u', 'v', 'w', 'x', 'y', 'z', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '+', '/'];
 
-  _encoded: String;
-  _decoded: String;
+  _encoded: string;
+  _decoded: string;
 
   constructor(private route: ActivatedRoute) {
   }
 
   ngOnInit() {
-    this.route.fragment.subscribe((fragment: String) => {
+    this.route.fragment.subscribe((fragment: string) => {
       this._decoded = this.decode(fragment);
     })
   }
 
-  set text(value: String) {
+  goto(location: string): void {
+    window.location.hash = '';
+    window.location.hash = location;
+  }
+
+  set text(value: string) {
     this._encoded = this.encode(value);
   }
 
-  get encoded(): String {
+  get encoded(): string {
     return this._encoded;
   }
 
-  get decoded(): String {
+  get decoded(): string {
     return this._decoded;
   }
 
-  private encode(value: String): String {
+  private encode(value: string): string {
     let result = "";
+
+    if (!value) {
+      return result;
+    }
+
     for (let i = 0; i < value.length; i += 3) {
       const mask1 = 0xFC;
       const mask21 = 0x03;
@@ -77,8 +87,13 @@ export class EditorComponent implements OnInit {
     return result;
   }
 
-  private decode(value: String) : String {
+  private decode(value: string) : string {
     let result = "";
+
+    if (!value) {
+      return result;
+    }
+
     for (let i = 0; i < value.length; i += 4) {
       const mask21 = 0x30;
       const mask22 = 0x0F;
