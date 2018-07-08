@@ -1,6 +1,6 @@
 {
-    "name": "",
-    "short_name": "",
+    "name": "Encode Message as URL",
+    "short_name": "Message URL",
     "icons": [
         {
             "src": "/site-as-url/android-chrome-192x192.png",
